@@ -2,7 +2,7 @@ services:
   db:
     image: ankane/pgvector:latest
     ports:
-      - "${POSTGRES_PORT:-5432}:5432"
+      - "${POSTGRES_PORT:-8432}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
@@ -27,7 +27,7 @@ services:
       context: ./surfsense_web
       dockerfile: Dockerfile
     ports:
-      - "${FRONTEND_PORT:-3000}:3000"
+      - "${FRONTEND_PORT:-3080}:3000"
     volumes:
       - ./surfsense_web:/app
       - /app/node_modules
